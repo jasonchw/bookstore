@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-public class GoogleBookRepositoryMockTest {
+class GoogleBookRepositoryMockTest {
     private GoogleBookRepository googleBookRepository;
 
     @Mock
@@ -45,7 +45,7 @@ public class GoogleBookRepositoryMockTest {
     }
 
     @Test
-    public void findByAuthorNameSuccess() {
+    void findByAuthorNameSuccess() {
         // given
         final String title = "Title 1";
         final String author = "Author";
@@ -80,7 +80,7 @@ public class GoogleBookRepositoryMockTest {
     }
 
     @Test
-    public void findByAuthorNameWithServiceException() {
+    void findByAuthorNameWithServiceException() {
         // given
         final String author = "Author";
         final HttpClientErrorException exception = new HttpClientErrorException(HttpStatus.BAD_REQUEST);
@@ -88,8 +88,8 @@ public class GoogleBookRepositoryMockTest {
         when(mockRestTemplate.exchange(anyString(), eq(HttpMethod.GET), any(HttpEntity.class), any(ParameterizedTypeReference.class))).thenThrow(exception);
 
         // when
+        final SearchRequest searchRequest = ImmutableSearchRequest.builder().authorName(author).build();
         try {
-            final SearchRequest searchRequest = ImmutableSearchRequest.builder().authorName(author).build();
             List<Book> books = googleBookRepository.findByAuthorName(searchRequest);
             fail("should throw ServiceException");
         } catch (ServiceException e) {
@@ -102,7 +102,7 @@ public class GoogleBookRepositoryMockTest {
     }
 
     @Test
-    public void findByAuthorNameWithNullResponseFromGoogleBookGet() {
+    void findByAuthorNameWithNullResponseFromGoogleBookGet() {
         // given
         final String author = "Author";
         final ResponseEntity<GoogleBookGetResponse> response = ResponseEntity.ok(null);

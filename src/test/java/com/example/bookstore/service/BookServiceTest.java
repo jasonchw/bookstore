@@ -19,7 +19,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-public class BookServiceTest {
+class BookServiceTest {
     private BookService bookService;
 
     @Mock
@@ -34,7 +34,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void findByAuthorNameWithAuthorName() {
+    void findByAuthorNameWithAuthorName() {
         // given
         final String title = "Title 1";
         final String author = "Author";
@@ -58,7 +58,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void findByAuthorNameWithNullAuthorName() {
+    void findByAuthorNameWithNullAuthorName() {
         // given
         // none
 
@@ -75,7 +75,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void findByAuthorNameWithEmptyAuthorName() {
+    void findByAuthorNameWithEmptyAuthorName() {
         // given
         // none
 
@@ -92,7 +92,7 @@ public class BookServiceTest {
     }
 
     @Test
-    public void findSearchHistoriesByClientId() {
+    void findSearchHistoriesByClientId() {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
 

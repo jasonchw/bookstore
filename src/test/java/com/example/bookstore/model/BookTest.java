@@ -8,9 +8,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BookTest {
+class BookTest {
     @Test
-    public void toResultSuccessWithEmptyList() {
+    void toResultSuccessWithEmptyList() {
         // given
         final List<Book> books = Collections.emptyList();
 
@@ -23,7 +23,7 @@ public class BookTest {
     }
 
     @Test
-    public void toResultSuccessWithNonEmptyList() {
+    void toResultSuccessWithNonEmptyList() {
         // given
         final int count = 2;
         final List<Book> books = BookUtils.getBooks(count);
@@ -34,6 +34,6 @@ public class BookTest {
         // then
         assertEquals(Result.Status.SUCCESS, result.getStatus());
         assertFalse(result.getPayload().isEmpty());
-        assertTrue(result.getPayload().size() == books.size());
+        assertEquals(count, result.getPayload().size());
     }
 }

@@ -9,9 +9,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GoogleBookGetResponseTest {
+class GoogleBookGetResponseTest {
     @Test
-    public void itemsToBooksWithEmptyList() {
+    void itemsToBooksWithEmptyList() {
         // given
         final List<GoogleBookGetResponse.Item> items = Collections.emptyList();
 
@@ -23,7 +23,7 @@ public class GoogleBookGetResponseTest {
     }
 
     @Test
-    public void itemsToBooksWithNonEmptyList() {
+    void itemsToBooksWithNonEmptyList() {
         // given
         final List<GoogleBookGetResponse.Item> items = Arrays.asList(
                 ImmutableGoogleBookGetResponse.Item.builder()
@@ -49,11 +49,11 @@ public class GoogleBookGetResponseTest {
 
         // then
         assertFalse(books.isEmpty());
-        assertTrue(books.size() == items.size());
+        assertEquals(items.size(), books.size());
     }
 
     @Test
-    public void volumeInfoToBook() {
+    void volumeInfoToBook() {
         // given
         final GoogleBookGetResponse.Item.VolumeInfo volumeInfo = ImmutableGoogleBookGetResponse.VolumeInfo.builder()
                 .title("Title 1")

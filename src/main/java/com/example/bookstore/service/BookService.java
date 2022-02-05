@@ -44,9 +44,8 @@ public class BookService {
     }
 
     public List<Book> findSearchHistoriesByClientId(String clientId) {
-        logger.debug("clientId: {}", clientId);
-
         List<Book> books = searchHistoryRepository.findByClientId(clientId);
+        logger.debug("found {} for clientId: {}", books.size(), clientId);
 
         return books;
     }
