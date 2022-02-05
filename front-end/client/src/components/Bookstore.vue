@@ -11,8 +11,9 @@
         </b-col>
       </b-row>
       <b-row>
-        <b-col sm="8">
+        <b-col sm="7">
           <b-row>
+            <h3>Search Results</h3>
             <b-pagination
                 size="sm"
                 v-model="searchCurrentPage"
@@ -31,8 +32,9 @@
                 :current-page="searchCurrentPage"></b-table>
           </b-row>
         </b-col>
-        <b-col sm="2">
+        <b-col sm="3">
           <b-row>
+            <h3>Search History</h3>
             <b-pagination
                 size="sm"
                 v-model="historyCurrentPage"
@@ -79,15 +81,15 @@ export default {
       searchPerPage: 20,
       books: [],
       bookFields: [
-        {key: 'title', label: 'Search Results'},
+        {key: 'title'},
         {key: 'authors', formatter: 'formatAuthors'}
       ],
       historyCurrentPage: 1,
       historyPerPage: 10,
       histories: [],
       historyFields: [
-        {key: 'title', label: 'Search History'},
-        // {key: 'authors', formatter: 'formatAuthors'}
+        {key: 'title'},
+        {key: 'authors', formatter: 'formatAuthors'}
       ],
       errors: []
     }
@@ -116,7 +118,7 @@ export default {
           }
       ).then(response => {
         this.books = response.data.payload
-        // rest.getSearchHistories()
+        this.searchCurrentPage = 1
 
         axios.get(
             'http://localhost:8080/services/books/v1/search/histories',
@@ -141,7 +143,6 @@ export default {
         .then((fp) => fp.get())
         .then((result) => {
           this.visitorId = result.visitorId;
-          // rest.getSearchHistories()
 
           axios.get(
               'http://localhost:8080/services/books/v1/search/histories',
