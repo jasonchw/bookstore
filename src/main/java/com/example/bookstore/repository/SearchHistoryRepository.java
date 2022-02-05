@@ -14,7 +14,7 @@ public class SearchHistoryRepository {
 
     public static final Comparator<Book> BOOK_COMPARATOR = Comparator.comparing(Book::getTitle);
 
-    public static final int MAX_CACHE_SIZE_PER_CLIENT = 50;
+    public static final int MAX_CACHE_SIZE_PER_CLIENT = 100;
 
     // TODO use external cache/data store when deploying multiple instances
     // clientId -> book(title, authors)'s
