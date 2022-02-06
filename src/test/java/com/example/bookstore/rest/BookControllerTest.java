@@ -26,13 +26,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-class BookControllerTest {
+public class BookControllerTest {
     @Mock
     private BookService mockBookService;
 
     private MockMvc mockMvc;
-
-//    private RestExceptionProcessor restExceptionProcessor;
 
     @BeforeEach
     public void beforeEach() {
@@ -41,12 +39,12 @@ class BookControllerTest {
     }
 
     // extract to parent class when more Controller tests are added
-    Object getController() {
+    public Object getController() {
         return new BookController(mockBookService);
     }
 
     @Test
-    void search() throws Exception {
+    public void search() throws Exception {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final String author = "Author";
@@ -69,7 +67,7 @@ class BookControllerTest {
     }
 
     @Test
-    void getSearchHistories() throws Exception {
+    public void getSearchHistories() throws Exception {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final int expectedCount = 2;

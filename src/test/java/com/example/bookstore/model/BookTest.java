@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BookTest {
+public class BookTest {
     @Test
     void toResultSuccessWithEmptyList() {
         // given
@@ -23,7 +23,7 @@ class BookTest {
     }
 
     @Test
-    void toResultSuccessWithNonEmptyList() {
+    public void toResultSuccessWithNonEmptyList() {
         // given
         final int count = 2;
         final List<Book> books = BookUtils.getBooks(count);

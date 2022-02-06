@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-class GoogleBookRepositoryMockTest {
+public class GoogleBookRepositoryMockTest {
     private GoogleBookRepository googleBookRepository;
 
     @Mock
@@ -45,7 +45,7 @@ class GoogleBookRepositoryMockTest {
     }
 
     @Test
-    void findByAuthorNameSuccess() {
+    public void findByAuthorNameSuccess() {
         // given
         final String title = "Title 1";
         final String author = "Author";
@@ -80,7 +80,7 @@ class GoogleBookRepositoryMockTest {
     }
 
     @Test
-    void findByAuthorNameWithServiceException() {
+    public void findByAuthorNameWithServiceException() {
         // given
         final String author = "Author";
         final HttpClientErrorException exception = new HttpClientErrorException(HttpStatus.BAD_REQUEST);
@@ -102,7 +102,7 @@ class GoogleBookRepositoryMockTest {
     }
 
     @Test
-    void findByAuthorNameWithNullResponseFromGoogleBookGet() {
+    public void findByAuthorNameWithNullResponseFromGoogleBookGet() {
         // given
         final String author = "Author";
         final ResponseEntity<GoogleBookGetResponse> response = ResponseEntity.ok(null);

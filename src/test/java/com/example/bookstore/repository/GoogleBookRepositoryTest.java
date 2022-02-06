@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = {TestContextConfiguration.class})
-class GoogleBookRepositoryTest {
+public class GoogleBookRepositoryTest {
     private GoogleBookRepository googleBookRepository;
 
     @Autowired
@@ -34,7 +34,7 @@ class GoogleBookRepositoryTest {
     }
 
     @Test
-    void findByAuthorName() {
+    public void findByAuthorName() {
         // given
         final String author = "Mark Twain";
 

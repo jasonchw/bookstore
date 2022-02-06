@@ -12,7 +12,7 @@ import static com.example.bookstore.repository.SearchHistoryRepository.BOOK_COMP
 import static com.example.bookstore.repository.SearchHistoryRepository.MAX_CACHE_SIZE_PER_CLIENT;
 import static org.junit.jupiter.api.Assertions.*;
 
-class SearchHistoryRepositoryTest {
+public class SearchHistoryRepositoryTest {
     private SearchHistoryRepository searchHistoryRepository;
 
     private Map<String, SortedSet<Book>> histories;
@@ -25,7 +25,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void saveWithNullClientId() {
+    public void saveWithNullClientId() {
         // given
         final String clientId = null;
         final int expectedCount = 2;
@@ -39,7 +39,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void saveWithEmptyClientId() {
+    public void saveWithEmptyClientId() {
         // given
         final String clientId = "";
         final int expectedCount = 2;
@@ -53,7 +53,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void saveWithNewClientId() {
+    public void saveWithNewClientId() {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final int expectedCount = 2;
@@ -67,7 +67,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void saveWithExistingClientId() {
+    public void saveWithExistingClientId() {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final int expectedCount1 = 2;
@@ -85,7 +85,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void saveMoreThanMaxCacheSize() {
+    public void saveMoreThanMaxCacheSize() {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final int maxCountPlus = MAX_CACHE_SIZE_PER_CLIENT + 10;
@@ -100,7 +100,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void findByClientIdWithSearchHistories() {
+    public void findByClientIdWithSearchHistories() {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final int expectedCount = 2;
@@ -120,7 +120,7 @@ class SearchHistoryRepositoryTest {
     }
 
     @Test
-    void findByClientIdWithoutSearchHistories() {
+    public void findByClientIdWithoutSearchHistories() {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
 
