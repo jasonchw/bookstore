@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-public class BookControllerTest {
+class BookControllerTest {
     @Mock
     private BookService mockBookService;
 
@@ -44,7 +44,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void search() throws Exception {
+    void search() throws Exception {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final String author = "Author";
@@ -67,7 +67,7 @@ public class BookControllerTest {
     }
 
     @Test
-    public void getSearchHistories() throws Exception {
+    void getSearchHistories() throws Exception {
         // given
         final String clientId = RandomStringUtils.randomAlphabetic(10);
         final int expectedCount = 2;
