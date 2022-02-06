@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GoogleBookGetResponseTest {
+class GoogleBookGetResponseTest {
     @Test
     void itemsToBooksWithEmptyList() {
         // given
@@ -23,7 +23,7 @@ public class GoogleBookGetResponseTest {
     }
 
     @Test
-    public void itemsToBooksWithNonEmptyList() {
+    void itemsToBooksWithNonEmptyList() {
         // given
         final List<GoogleBookGetResponse.Item> items = Arrays.asList(
                 ImmutableGoogleBookGetResponse.Item.builder()
@@ -53,7 +53,7 @@ public class GoogleBookGetResponseTest {
     }
 
     @Test
-    public void volumeInfoToBook() {
+    void volumeInfoToBook() {
         // given
         final GoogleBookGetResponse.Item.VolumeInfo volumeInfo = ImmutableGoogleBookGetResponse.VolumeInfo.builder()
                 .title("Title 1")
