@@ -5,6 +5,7 @@ import com.example.bookstore.model.ImmutableBook;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.immutables.value.Value;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,12 +18,18 @@ public interface GoogleBookGetResponse {
     @Value.Immutable
     @JsonDeserialize(as = ImmutableGoogleBookGetResponse.Item.class)
     interface Item {
+        String getId();
+
         VolumeInfo getVolumeInfo();
 
         @Value.Immutable
         @JsonDeserialize(as = ImmutableGoogleBookGetResponse.VolumeInfo.class)
         interface VolumeInfo {
-            String getTitle();
+            @Nullable
+            @Value.Default
+            default String getTitle() {
+                return "(no title)";
+            }
 
             List<String> getAuthors();
 
