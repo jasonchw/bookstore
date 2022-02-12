@@ -1,4 +1,4 @@
-package com.example.bookstore.model;
+package com.example.bookstore.payload;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.immutables.value.Value;
