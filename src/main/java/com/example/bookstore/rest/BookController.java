@@ -1,7 +1,7 @@
 package com.example.bookstore.rest;
 
 import com.example.bookstore.model.Book;
-import com.example.bookstore.model.Result;
+import com.example.bookstore.payload.Result;
 import com.example.bookstore.payload.SearchRequest;
 import com.example.bookstore.service.BookService;
 import org.slf4j.Logger;

@@ -1,10 +1,10 @@
 package com.example.bookstore.rest;
 
 import com.example.bookstore.lang.ServiceException;
-import com.example.bookstore.model.ImmutableResult;
-import com.example.bookstore.model.Result;
 import com.example.bookstore.payload.ErrorResponse;
 import com.example.bookstore.payload.ImmutableErrorResponse;
+import com.example.bookstore.payload.ImmutableResult;
+import com.example.bookstore.payload.Result;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

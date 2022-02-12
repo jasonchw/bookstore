@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
 
-import static com.example.bookstore.model.Result.Status.SUCCESS;
+import static com.example.bookstore.payload.Result.Status.SUCCESS;
 import static com.example.bookstore.rest.BookController.HEADER_CLIENT_ID;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
