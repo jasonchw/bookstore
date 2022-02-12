@@ -7,6 +7,7 @@ import com.example.bookstore.payload.GoogleBookGetResponse;
 import com.example.bookstore.payload.ImmutableGoogleBookGetResponse;
 import com.example.bookstore.payload.ImmutableSearchRequest;
 import com.example.bookstore.payload.SearchRequest;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -47,6 +48,7 @@ class GoogleBookRepositoryMockTest {
     @Test
     void findByAuthorNameSuccess() {
         // given
+        final String id = RandomStringUtils.randomAlphabetic(10);
         final String title = "Title 1";
         final String author = "Author";
         final List<String> authors = Arrays.asList(author + " 1");
@@ -54,6 +56,7 @@ class GoogleBookRepositoryMockTest {
                 ImmutableGoogleBookGetResponse.builder()
                         .addItems(
                                 ImmutableGoogleBookGetResponse.Item.builder()
+                                        .id(id)
                                         .volumeInfo(
                                                 ImmutableGoogleBookGetResponse.VolumeInfo.builder()
                                                         .title(title)

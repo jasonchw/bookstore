@@ -47,6 +47,7 @@ public interface GoogleBookGetResponse {
 
     static List<Book> to(List<Item> items) {
         return items.stream()
+                .filter(item -> item.getVolumeInfo() != null)
                 .map(item -> Item.VolumeInfo.to(item.getVolumeInfo()))
                 .collect(Collectors.toList());
     }
